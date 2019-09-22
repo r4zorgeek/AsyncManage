@@ -26,7 +26,7 @@
         android:layout_alignEnd="@+id/password"
         android:layout_alignRight="@+id/password"
         android:layout_marginTop="6dp"
-        android:background="#00FFFFFF"
+        android:background="#000000"
         android:text="SIGN IN"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
@@ -41,7 +41,7 @@
         android:layout_alignEnd="@+id/username"
         android:layout_alignRight="@+id/username"
         android:ems="10"
-        android:hint=" Enter User Passwrod"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#999999"
@@ -56,22 +56,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="65dp"
         android:layout_marginRight="20dp"
-        android:hint="  Enter User Name"
+        android:hint="User Name"
         android:textColor="#FFFFFF"
         android:textColorHint="#999999"
         android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:text="LOGIN"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF"
-        android:textSize="70sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -85,24 +73,5 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="YOUR ACCOUNT"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF"
-        android:textSize="25sp" />
-
-    <View
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="-3dp"
-        android:alpha="0"
-        android:background="#000000" />
 
 </RelativeLayout>

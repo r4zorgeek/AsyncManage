@@ -104,7 +104,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_change_request_pass) {
             Intent i = ChangeRequestPasswd.newIntent(this);
             startActivity(i);
+
+        } else if (id == R.id.nav_history) {
+            Intent i = UserHistory.newIntent(this);
+            startActivity(i);
         }
+
 
 //        } else if (id == R.id.nav_share) {
 //

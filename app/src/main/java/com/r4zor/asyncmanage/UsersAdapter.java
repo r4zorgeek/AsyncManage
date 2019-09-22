@@ -22,14 +22,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     class UsersViewHolder extends RecyclerView.ViewHolder {
         protected TextView vusername;
         protected TextView vid;
-        protected TextView vemail;
+        // protected TextView vemail;
 
 
         private UsersViewHolder(View itemView) {
             super(itemView);
             vusername = (TextView) itemView.findViewById(R.id.username);
             vid = (TextView) itemView.findViewById(R.id.user_id);
-            vemail = (TextView) itemView.findViewById(R.id.email);
+//            vemail = (TextView) itemView.findViewById(R.id.email);
         }
     }
 
@@ -47,7 +47,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     @Override
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
         Users u = mUserList.get(position);
-        holder.vemail.setText(u.getEmail().toString());
+//        holder.vemail.setText(u.getEmail().toString());
         holder.vusername.setText(u.getName().toString());
         holder.vid.setText(String.valueOf(u.getId()));
     }
