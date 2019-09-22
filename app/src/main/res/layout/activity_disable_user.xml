@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".DisableUser">
 
+    <EditText
+        android:id="@+id/disable_userid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="234dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="User Id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/disable_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Message"
+        app:layout_constraintStart_toStartOf="@+id/disable_userid"
+        app:layout_constraintTop_toBottomOf="@+id/disable_userid" />
 </android.support.constraint.ConstraintLayout>

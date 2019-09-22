@@ -337,7 +337,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 String url = "https://4909fc94.ngrok.io/api/auth-token/";
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
 
                             @Override
                             public void onResponse(JSONObject response) {
@@ -360,7 +360,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         }) {
                     protected Map<String, String> getParams() {
                         Map<String, String> par = new HashMap<String, String>();
-                        par.put("username",mEmail);
+                        par.put("username", "yogesh");
                         par.put("password", "password");
                         return par;
                     }
