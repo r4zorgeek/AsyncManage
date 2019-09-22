@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -31,49 +35,59 @@ public class DisableUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_disable_user);
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(DisableUser.this);
+        final RequestQueue MyRequestQueue = Volley.newRequestQueue(DisableUser.this);
+        final EditText user_id = findViewById(R.id.disable_userid);
+        final EditText message = findViewById(R.id.disable_message);
+        Button disable_submit = findViewById(R.id.disable_submit);
+        disable_submit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+                    // Simulate network access.
+                    // Thread.sleep(2000);
+                    String user_id_st = user_id.getText().toString();
+                    String message_st = message.getText().toString();
+                    String url = "https://4909fc94.ngrok.io/api/admin/disable/" + user_id_st + "/" + message_st;
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, url, null, new Response.Listener<JSONObject>() {
 
-        try {
-            // Simulate network access.
-            // Thread.sleep(2000);
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("User Disabled", response.toString());
+                            try {
 
-            String url = "https://4909fc94.ngrok.io/api/admin/disable" + "/5" + "/manager/";
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+                            }
+                            catch (Exception e) {
 
-                @Override
-                public void onResponse(JSONObject response) {
-                    Log.d("User Disabled", response.toString());
-                    try {
+                            }
+                        }
+                    }, new Response.ErrorListener() {
 
-                    }
-                    catch (Exception e) {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            Log.d("Disables Unsuccessful", error.toString());
 
-                    }
+                        }
+                    }) {
+                        @Override
+                        public Map<String, String> getHeaders() throws AuthFailureError {
+                            Map<String,String> params = new HashMap<String, String>();
+                            SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                            String auth_token = sharedPref.getString("user_token", "0000");
+                            Log.d("DeleteUser", auth_token);
+                            params.put("Authorization","Token a383af1f92b4baa53574cd6baaae40be1b167123");
+                            return params;
+                        }
+                    };
+
+                    MyRequestQueue.add(jsonObjectRequest);
                 }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // TODO: Handle error
-                    Log.d("Disables UnSuccessful", error.toString());
+                catch (Exception e) {
 
                 }
-            }) {
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String,String> params = new HashMap<String, String>();
-                    SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-                    String auth_token = sharedPref.getString("user_token", "0000");
-                    params.put("Authorization","Token a383af1f92b4baa53574cd6baaae40be1b167123");
-                    return params;
-                }
-            };
-
-            MyRequestQueue.add(jsonObjectRequest);
-        }
-        catch (Exception e) {
-
-        }
+                Toast msg = Toast.makeText(getBaseContext(),"User Disabled", Toast.LENGTH_LONG);
+                msg.show();
+            }
+        });
 
     }
 }
