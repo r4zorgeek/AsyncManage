@@ -6,14 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".DisableUser">
 
+    <Button
+        android:id="@+id/disable_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="213dp"
+        android:background="@android:color/black"
+        android:text="Submit"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/disable_message" />
+
     <EditText
         android:id="@+id/disable_userid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="234dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="51dp"
         android:ems="10"
         android:hint="User Id"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/disable_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,9 +44,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
+        android:layout_marginBottom="73dp"
         android:ems="10"
         android:hint="Message"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/disable_submit"
+        app:layout_constraintEnd_toEndOf="@+id/disable_userid"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/disable_userid"
         app:layout_constraintTop_toBottomOf="@+id/disable_userid" />
 </android.support.constraint.ConstraintLayout>

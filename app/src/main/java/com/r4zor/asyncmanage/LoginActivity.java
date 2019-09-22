@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -43,6 +44,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -343,8 +345,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(LoginActivity.this,response, Toast.LENGTH_LONG).show();
-                                AUTH_TOKEN = response;
-                                Log.d("LoginActivity", AUTH_TOKEN);
+                                JSONObject json_resp = null;
+                                try {
+                                    json_resp = new JSONObject(response);
+                                    AUTH_TOKEN = json_resp.getString("token");
+
+                                } catch (Throwable t) {
+                                    Log.e("My App", "Could not parse malformed JSON: \"" + json_resp + "\"");
+                                }
+
+//                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Context);
+//                                SharedPreferences.Editor editor = preferences.edit();
+//                                editor.putString("user_token", AUTH_TOKEN);
+//                                editor.commit();
+//                                Log.d("LoginActivity", AUTH_TOKEN);
 
                             }
                         },
