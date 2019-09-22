@@ -32,6 +32,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -50,6 +51,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static android.accounts.AccountManager.KEY_PASSWORD;
 
 /**
  * A login screen that offers login via email/password.
@@ -336,38 +338,34 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // Thread.sleep(2000);
 
                 String url = "https://4909fc94.ngrok.io/api/auth-token/";
-
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
-
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
                             @Override
-                            public void onResponse(JSONObject response) {
-                                Log.d("Login Successful", response.toString());
-                                try {
-                                    AUTH_TOKEN = response.getString("token");
+                            public void onResponse(String response) {
+                                Toast.makeText(LoginActivity.this,response, Toast.LENGTH_LONG).show();
+                                AUTH_TOKEN = response;
+                                Log.d("LoginActivity", AUTH_TOKEN);
 
-                                }
-                                catch (Exception e) {
-
-                                }
                             }
-                        }, new Response.ErrorListener() {
-
+                        },
+                        new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                // TODO: Handle error
-                                Log.d("Login UnSuccessful", error.toString());
-
+                                Toast.makeText(LoginActivity.this,error.toString(),Toast.LENGTH_LONG).show();
                             }
-                        }) {
-                    protected Map<String, String> getParams() {
-                        Map<String, String> par = new HashMap<String, String>();
-                        par.put("username", "yogesh");
-                        par.put("password", "password");
-                        return par;
+                        }){
+                    @Override
+                    protected Map<String,String> getParams(){
+                        Map<String,String> params = new HashMap<String, String>();
+                        params.put("username", "yogesh");
+                        params.put("password", "password");
+                        return params;
                     }
+
                 };
 
-                MyRequestQueue.add(jsonObjectRequest);
+                MyRequestQueue.add(stringRequest);
+
             }
 
             catch (Exception e) {

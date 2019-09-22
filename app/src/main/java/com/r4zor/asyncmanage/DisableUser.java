@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -36,7 +37,7 @@ public class DisableUser extends AppCompatActivity {
             // Simulate network access.
             // Thread.sleep(2000);
 
-            String url = "https://4909fc94.ngrok.io/api/admin/disable" + "/1" + "/manager";
+            String url = "https://4909fc94.ngrok.io/api/admin/disable" + "/5" + "/manager/";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
 
                 @Override
@@ -54,16 +55,17 @@ public class DisableUser extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     // TODO: Handle error
-                    Log.d("Login UnSuccessful", error.toString());
+                    Log.d("Disables UnSuccessful", error.toString());
 
                 }
             }) {
-                protected Map<String, String> getParams() {
-                    Map<String, String> par = new HashMap<String, String>();
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String,String> params = new HashMap<String, String>();
                     SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
                     String auth_token = sharedPref.getString("user_token", "0000");
-                    par.put("Authorization:", "Token a383af1f92b4baa53574cd6baaae40be1b167123");
-                    return par;
+                    params.put("Authorization","Token a383af1f92b4baa53574cd6baaae40be1b167123");
+                    return params;
                 }
             };
 
