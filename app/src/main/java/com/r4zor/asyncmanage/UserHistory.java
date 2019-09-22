@@ -2,6 +2,8 @@ package com.r4zor.asyncmanage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserHistory extends AppCompatActivity {
+
+    public static Intent newIntent(Context context) {
+        Intent i = new Intent(context, UserHistory.class);
+        return i;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
