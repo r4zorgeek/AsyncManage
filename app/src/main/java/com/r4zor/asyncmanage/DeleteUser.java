@@ -46,7 +46,7 @@ public class DeleteUser extends AppCompatActivity {
                     // Thread.sleep(2000);
                     String user_id_st = user_id.getText().toString();
                     String message_st = message.getText().toString();
-                    String url = "https://4909fc94.ngrok.io/api/admin/delete/" + user_id_st + "/" + message_st;
+                    String url = "https://8800d1ed.ngrok.io/api/admin/delete/" + user_id_st + "/" + message_st;
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, url, null, new Response.Listener<JSONObject>() {
 
                         @Override

@@ -339,7 +339,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // Simulate network access.
                 // Thread.sleep(2000);
 
-                String url = "https://4909fc94.ngrok.io/api/auth-token/";
+                String url = "https://8800d1ed.ngrok.io/api/auth-token/";
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override

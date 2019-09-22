@@ -24,7 +24,7 @@ public class LoginService {
     String getAuthToken(Context context) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="https://4909fc94.ngrok.io/api/auth-token";
+        String url ="https://8800d1ed.ngrok.io/api/auth-token";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
