@@ -2,6 +2,7 @@ package com.r4zor.asyncmanage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -88,12 +89,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_view_users) {
-            // Handle the camera action
+            // start view users activity
+            Intent i = ViewUsers.newIntent(this);
+            startActivity(i);
+
         } else if (id == R.id.nav_disable_user) {
+            Intent i = DisableUser.newIntent(this);
+            startActivity(i);
 
         } else if (id == R.id.nav_delete_user) {
+            Intent i = DeleteUser.newIntent(this);
+            startActivity(i);
 
-        } else if (id == R.id.nav_change_request_pass) { }
+        } else if (id == R.id.nav_change_request_pass) {
+            Intent i = ChangeRequestPasswd.newIntent(this);
+            startActivity(i);
+        }
 
 //        } else if (id == R.id.nav_share) {
 //
@@ -105,4 +116,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    // get shared token
+    SharedPreferences mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
+    String tokenVal = mSharedPreferences.getString("user_token", null);
 }

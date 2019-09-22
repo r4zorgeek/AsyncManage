@@ -337,13 +337,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 String url = "https://4909fc94.ngrok.io/api/auth-token/";
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
 
                             @Override
                             public void onResponse(JSONObject response) {
                                 Log.d("Login Successful", response.toString());
                                 try {
                                     AUTH_TOKEN = response.getString("token");
+
                                 }
                                 catch (Exception e) {
 
@@ -393,15 +394,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 // finish();
 
-                // save auth token in shared pref
-                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("user_token", AUTH_TOKEN);
-                editor.commit();
 
-                // start main activity
-                Intent i = MainActivity.newIntent(LoginActivity.this);
-                startActivity(i);
 
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
