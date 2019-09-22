@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="290dp"
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="51dp"
         android:ems="10"
@@ -36,6 +36,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/disable_message"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,14 +44,14 @@
         android:id="@+id/disable_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="73dp"
         android:ems="10"
         android:hint="Message"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/disable_submit"
         app:layout_constraintEnd_toEndOf="@+id/disable_userid"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/disable_userid"
         app:layout_constraintTop_toBottomOf="@+id/disable_userid" />
 </android.support.constraint.ConstraintLayout>
