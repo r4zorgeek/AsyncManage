@@ -14,11 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserHistory"></activity>
-        <activity android:name=".ChangeRequestPasswd" />
-        <activity android:name=".DeleteUser" />
-        <activity android:name=".DisableUser" />
-        <activity android:name=".ViewUsers" />
+        <activity android:name=".UserHistory"
+            android:label="User History"></activity>
+        <activity android:name=".ChangeRequestPasswd"
+            android:label="Request Password Change"/>
+        <activity android:name=".DeleteUser"
+            android:label="Delete Users"/>
+        <activity android:name=".DisableUser"
+            android:label="Disable Users"/>
+        <activity android:name=".ViewUsers"
+            android:label="View Users"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"

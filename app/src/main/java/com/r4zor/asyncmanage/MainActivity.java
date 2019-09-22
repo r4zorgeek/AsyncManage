@@ -118,6 +118,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     // get shared token
-    SharedPreferences mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
-    String tokenVal = mSharedPreferences.getString("user_token", null);
+    // SharedPreferences mSharedPreferences = getPreferences(Context.MODE_PRIVATE);
+    // String tokenVal = mSharedPreferences.getString("user_token", null);
 }
