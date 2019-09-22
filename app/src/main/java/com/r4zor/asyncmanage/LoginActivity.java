@@ -359,7 +359,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     protected Map<String, String> getParams() {
                         Map<String, String> par = new HashMap<String, String>();
                         par.put("username",mEmail);
-                        par.put("name", mPassword);
+                        par.put("password", "password");
                         return par;
                     }
                 };

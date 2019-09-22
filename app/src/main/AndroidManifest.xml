@@ -14,10 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserHistory"></activity>
+        <activity android:name=".ChangeRequestPasswd" />
+        <activity android:name=".DeleteUser" />
+        <activity android:name=".DisableUser" />
+        <activity android:name=".ViewUsers" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
