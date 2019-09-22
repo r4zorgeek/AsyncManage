@@ -15,7 +15,7 @@
             android:title="Delete User" />
         <item
             android:id="@+id/nav_change_request_pass"
-            android:title="Change Passwd" />
+            android:title="Change Password" />
         <item
             android:id="@+id/nav_history"
             android:title="History" />
